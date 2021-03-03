@@ -60,7 +60,7 @@
         <section class="page-section portfolio" id="portfolio">
             <div class="container">
             <?php
-          
+            echo 'ici'.$_GET["route"];
             //test pour savoir si le paramètre route existe
             if (isset($_GET["route"]))
             {
@@ -185,7 +185,7 @@
                                     <!-- Portfolio Modal - Title-->
                                     <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal2Label">theme 2</h2>
                                     <!-- Icon Divider-->
-                                        <div class="divider-custom">
+         <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
                                         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                         <div class="divider-custom-line"></div>
