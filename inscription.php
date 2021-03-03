@@ -19,20 +19,19 @@
 
     <footer class="footer text-center">
             <div class="container">
-                <div class="row">
-                    
+                <div class="row">               
                         </p>
-
                 </div>
             </div>
         </footer>
         <?php 
-        $pass_ache = password_hash($_POST['MDPUser'], PASSWORD_DEFAULT);
+        $connexion = new PDO("mysql=host=localhost;dbname=filesrank;charset=utf8","root",);
+        $pass_ache = password_hash($_POST["MDPUser"], PASSWORD_DEFAULT);
 
 
-        $req = $bdd->prepare('INSERT INTO utilisateur(LoginUser, MDPUser) VALUES(:LoginUser, :MDPUser, CURDATE())');
+        $req = $bdd->prepare("INSERT INTO utilisateur(LoginUser, MDPUser) VALUES(:LoginUser, :MDPUser, CURDATE())");
         $req->execute(array(
-            'LoginUser' => $LoginUser,
-            'MDPUser' => $MDPUser));
+            "LoginUser" => $LoginUser,
+            "MDPUser" => $MDPUser));
             ?>
 </html>
