@@ -25,11 +25,11 @@
             </div>
         </footer>
         <?php 
-        $connexion = new PDO("mysql=host=localhost;dbname=filesrank;charset=utf8","root",);
+        
+        $connexion = new PDO("mysql=host=localhost;dbname=filesrank;charset=utf8","root","");
+
+        $req = $bdd->prepare("INSERT INTO utilisateur(LoginUser,MDPUser) VALUES(:LoginUser, :MDPUser, CURDATE())");
         $pass_ache = password_hash($_POST["MDPUser"], PASSWORD_DEFAULT);
-
-
-        $req = $bdd->prepare("INSERT INTO utilisateur(LoginUser, MDPUser) VALUES(:LoginUser, :MDPUser, CURDATE())");
         $req->execute(array(
             "LoginUser" => $LoginUser,
             "MDPUser" => $MDPUser));
