@@ -19,12 +19,17 @@
     </head>
      
     <body>
-    	 <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="#page-top">Fileranck</a>
-                <label for="site-search">recherche:</label>
-<input type="search" id="site-search" name="q"
-       aria-label="Search through site content">
+	   	<?php
+	 
+	try $bdd = new PDO('mysql:host=localhost;dbname=filerank;charset=utf8','root','');
+	$bdd->setAttribute(pdo::attr_errmode, PDO::ERRMODE_EXCEPTION);
+	catch(exception $e) die ("Une erreur a été trouvée :" .$e->getmessage());
+	$Ids = $bdd->query('SELECT TitreDoc FROM Document ORDER BY ASC'); 
+		?>
+    <form action = "verif-form.php" method="GET">
+	   <input type="search" name="q" placeholder="Recherche..." />
+	   <input type="submit" value="Rechercher" />
+	</form>
 
 <button>rechercher</button>
 
