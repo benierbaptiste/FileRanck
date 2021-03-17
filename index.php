@@ -19,17 +19,6 @@
     </head>
      
     <body>
-	   	<?php
-	 
-	try $bdd = new PDO('mysql:host=localhost;dbname=filerank;charset=utf8','root','');
-	$bdd->setAttribute(pdo::attr_errmode, PDO::ERRMODE_EXCEPTION);
-	catch(exception $e) die ("Une erreur a été trouvée :" .$e->getmessage());
-	$Ids = $bdd->query('SELECT TitreDoc FROM Document ORDER BY ASC'); 
-		?>
-    <form action = "verif-form.php" method="GET">
-	   <input type="search" name="q" placeholder="Recherche..." />
-	   <input type="submit" value="Rechercher" />
-	</form>
 
 <button>rechercher</button>
 
