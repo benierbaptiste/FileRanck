@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
-=======
-
->>>>>>> 1eae5d71e9759a7c64e363f3d100e01f29378a7b
 <html>
     <head>
     <meta htptp-equiv="content-Type" content="text/html; charset=UTF-8" />
@@ -21,14 +17,9 @@
     </body>
     <footer class="footer text-center">
             <div class="container">
-<<<<<<< HEAD
-
-=======
                 <div class="row">               
                         </p>
                 </div>
             </div>
         </footer>
-        
->>>>>>> 1eae5d71e9759a7c64e363f3d100e01f29378a7b
 </html>
