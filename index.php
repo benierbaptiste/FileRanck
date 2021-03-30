@@ -41,9 +41,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a href="index.php?route=list-view-themes">Voir les thèmes</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a href="index.php?route=create-view-theme">Créer un thème</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a href="index.php?route=edit-view-theme">Editer un thème</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a href="index.php?route=list">Voir les thèmes</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a href="index.php?route=create-theme">Créer un thème</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a href="index.php?route=edit">Editer un thème</a></li>
                     </ul>
                 </div>
             </div>
@@ -67,33 +67,33 @@
         <section class="page-section portfolio" id="portfolio">
             <div class="container">
             <?php
-            echo 'ici'.$_GET["route"];
+            
             //test pour savoir si le paramètre route existe
             if (isset($_GET["route"]))
             {
                 switch ($_GET["route"]) {
-                    case "list-themes":
+                    case "list":
                         //récupération des thèmes de la base de données
                         include 'views/theme/list.php';
                         break;
                     case "create-theme":
                         include 'views/theme/create.php';
                         break;
-                    case "edit-theme":
+                    case "edit":
                         //récupération du thème de la base de données
                         include 'views/theme/edit.php';
                         break;
-                    case "update-theme":
+                    case "update":
                         //mise à jour du thème en base de données
-                        header("location:index.php?route=list-themes");
+                        header("location:index.php?route=list-theme");
                         break;
-                    case "store-theme":
+                    case "store":
                         //création du thème en base de données
-                        header("location:index.php?route=list-themes");
+                        header("location:index.php?route=list-theme");
                         break;   
-                    case "delete-theme":
+                    case "delete":
                         //suppression du thème en base de données
-                        header("location:index.php?route=list-themes");
+                        header("location:index.php?route=list-theme");
                         break;   
                     default:
                         include 'views/404.php';
@@ -104,7 +104,7 @@
             {
                 include 'views/home.php';
             }
-            
+        
             ?>
             </div>
         </section>
