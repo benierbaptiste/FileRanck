@@ -25,20 +25,30 @@
     <body>	
 	<nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
 		<a class="navbar-brand js-scroll-trigger" href="#page-top">Fileranck</a>
-	
-		<div class="form-group"href="#page-top">
-		<input class="form-control" type="text" value="" placeholder="rechercher un ou plusieurs documents">
-		</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<button type="button" class="btn btn-secondary">Rechercher</button>
-                <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
+		<button class ="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
+		Menu
+		<i class="fas fa-bars"></i>
+		</button>
+		<?php
+   
+	?>
+	<form method="POST" action="index.php?route=recherche">
+		<input type="search" name="q" placeholder="Recherche..." />
+		<input type="submit" value="Valider" />
+	</form>
+	
+
+	
+	
+	
+	
+
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a href="index.php?route=list">Voir les thèmes</a></li>
@@ -95,9 +105,25 @@
                         //suppression du thème en base de données
                         header("location:index.php?route=list-theme");
                         break;   
+				  
+                    case "recherche":
+				
+                        $bdd = new PDO('mysql:host=localhost;dbname=filerank;charset=utf8', 'root', '');
+						$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+						$q="";
+						if(isset($_POST['q']) AND !empty($_POST['q'])){
+						$q = htmlspecialchars($_POST['q']);
+						}
+						$MC = $bdd->query('SELECT * FROM motclé WHERE NomMC LIKE "%'.$q.'%" ORDER BY IdMotCle DESC');
+						$res=$MC->fetchAll();
+                        include 'views/theme/res_recherche.php';
+					
+                        break; 	
                     default:
+					
                         include 'views/404.php';
                         break;
+						 
                 }
             }
             else
